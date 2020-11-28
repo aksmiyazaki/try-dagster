@@ -1,2 +1,36 @@
-# try-dagster
-Trying dagster as Orchestrator.
+## Basic Concepts
+- Solid
+  - Functional unit of computtion, with defined inputs and outputs.
+  - You can define Solid input types by:
+    - Putting in the signature
+    ```
+    @solid
+    def hello_variation(context, name: str, age: int)
+    ```
+
+    - Or by the input_defs decorator:
+    ```
+    @solid(
+        input_defs=[
+            InputDefinition(name="name", dagster_type=str),
+            InputDefinition(name="age", dagster_type=int),
+        ]
+    )
+    def hello(context, name, age):
+    ```
+- Pipeline
+  - DAGs of solids.
+  - Only one pipeline per python file is allowed.
+- Output
+  - How a Solid compute function communicates the name and value of an output to Dagster
+
+
+
+### Building a simple pipeline
+![image](https://user-images.githubusercontent.com/18602477/100518134-8015ad80-316e-11eb-8243-4099d6c64dca.png)
+
+Watch for the types of the parameters in the hello.
+
+If you define a pipeline with specified types and they do not match, it will give an error with type mismatch.
+
+![image](https://user-images.githubusercontent.com/18602477/100518313-88bab380-316f-11eb-9491-ab05a499c177.png)
