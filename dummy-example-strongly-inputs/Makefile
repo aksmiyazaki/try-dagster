@@ -1,3 +1,3 @@
 
 run:
-	dagit -f hello_dagster.py
+	dagit -f strongly-typed-inputs.py

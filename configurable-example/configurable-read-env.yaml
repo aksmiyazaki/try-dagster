@@ -1,0 +1,8 @@
+solids:
+  read_file:
+    inputs:
+      file_path:
+        value: "configurable-read-env.yaml"
+  count_file_lines_and_show:
+    config:
+      phrase_param: "potato!!!"
