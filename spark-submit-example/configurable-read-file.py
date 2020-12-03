@@ -13,5 +13,5 @@ def count_file_lines_and_show(context, file_lines: List[String]) -> Nothing:
     context.log.info('This file has, {c} lines! and the phrase is {p}'.format(c=c, p=context.solid_config["phrase_param"]))
 
 @pipeline
-def type_pipeline():
+def broken_type_pipeline():
     count_file_lines_and_show(read_file())
