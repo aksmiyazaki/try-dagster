@@ -1,4 +1,4 @@
-val compilerVersion = "2.12.12"
+val compilerVersion = "2.11.12"
 lazy val compileScalastyle = taskKey[Unit]("compileScalastyle")
 
 val buildSettings = Seq(
