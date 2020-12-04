@@ -1,3 +1,3 @@
 
 run:
-	dagit -f configurable-read-file.py
+	dagit -f spark-submit-simple-job.py

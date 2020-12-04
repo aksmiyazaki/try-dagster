@@ -1,8 +1,21 @@
 solids:
-  read_file:
-    inputs:
-      file_path:
-        value: "configurable-read-env.yaml"
-  count_file_lines_and_show:
+  spark_process_simple_csv:
     config:
-      phrase_param: "potato!!!"
+      master_url: yarn
+      application_jar:
+        /Users/alexandre.miyazaki/Documents/git-personal/try-dagster/grouped-csv-count/target/scala-2.11/grouped-csv-count.jar
+      application_arguments:
+        --app-name CountCSV --input-csv-path /tmp/aksmiyazaki/dummy.csv --group-column name --output-data-path /tmp/aksmiyazaki/result
+      spark_conf:
+        spark:
+          yarn:
+            maxAppAttempts:
+              1
+            submit:
+              waitAppCompletion:
+                true
+          hadoop:
+            yarn:
+              timeline-service:
+                enabled:
+                  false
