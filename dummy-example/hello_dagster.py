@@ -1,11 +1,11 @@
 from dagster import execute_pipeline, pipeline, solid
 
 @solid
-def get_name(_):
+def get_name(_) -> str:
     return 'dagster'
 
 @solid
-def get_age(_):
+def get_age(_) -> int:
     return 25
 
 

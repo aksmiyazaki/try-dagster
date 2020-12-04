@@ -1,5 +1,5 @@
 import config.{ConfigurationParser, CountConfig}
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.spark.sql.functions.col
 import org.slf4j.{Logger, LoggerFactory}
 
@@ -24,6 +24,6 @@ object GroupedCount {
       .option("inferSchema", "true")
       .csv(config.csvPath)
 
-    inputData.groupBy(col(config.groupColumn)).count().write.csv(config.outputPath)
+    inputData.groupBy(col(config.groupColumn)).count().write.mode(SaveMode.Overwrite).csv(config.outputPath)
   }
 }
