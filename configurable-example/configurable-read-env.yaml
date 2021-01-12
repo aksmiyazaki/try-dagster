@@ -2,7 +2,7 @@ solids:
   read_file:
     inputs:
       file_path:
-        value: "configurable-read-env.yaml"
+        "/Users/alexandre.miyazaki/Documents/git-personal/try-dagster/README.md"
   count_file_lines_and_show:
     config:
-      phrase_param: "potato!!!"
+      phrase_param: "asdfg"

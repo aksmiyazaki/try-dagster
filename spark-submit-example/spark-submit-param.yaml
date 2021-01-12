@@ -1,0 +1,30 @@
+solids:
+  spark_process_simple_csv:
+    config:
+      deploy_mode: "cluster"
+      master_url: yarn-cluster
+      application_jar:
+        /Users/alexandre.miyazaki/Documents/git-personal/try-dagster/grouped-csv-count/target/scala-2.11/grouped-csv-count.jar
+      application_arguments:
+        env:
+          APPLICATION_PARAMS
+      spark_conf:
+        spark:
+          executor:
+            cores: 1
+            memory: 1g
+          driver:
+            cores: 1
+            memory: 1g
+            extraJavaOptions: -Dhdp.version=2.6.5.0-292
+          yarn:
+            maxAppAttempts:
+              1
+            submit:
+              waitAppCompletion:
+                true
+          hadoop:
+            yarn:
+              timeline-service:
+                enabled:
+                  false
